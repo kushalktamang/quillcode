@@ -1,0 +1,13 @@
+{
+  "name": "@quillcode/oxc",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./oxlint": "./src/oxlint.ts",
+    "./oxfmt": "./src/oxfmt.ts"
+  },
+  "peerDependencies": {
+    "oxfmt": "catalog:",
+    "oxlint": "catalog:"
+  }
+}

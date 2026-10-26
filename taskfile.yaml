@@ -1,0 +1,17 @@
+version: "3"
+
+tasks:
+  dev:
+    desc: starting the cli app
+    cmds:
+      - bun run --watch apps/cli/src/main.tsx
+
+  lint:
+    desc: linting all files
+    cmds:
+      - bun run lint
+
+  fmt:
+    desc: formatting all files
+    cmds:
+      - bun run fmt

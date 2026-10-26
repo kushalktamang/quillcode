@@ -1,0 +1,33 @@
+{
+  "name": "quillcode",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI-powered development tool",
+  "license": "MIT",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "type": "module",
+  "scripts": {
+    "dev:cli": "bun run --watch apps/cli/src/main.tsx",
+    "lint": "oxlint",
+    "fmt": "oxfmt",
+    "lint:fix": "oxlint --fix",
+    "fmt:check": "oxfmt --check"
+  },
+  "devDependencies": {
+    "@quillcode/oxc": "workspace:*",
+    "oxfmt": "catalog:",
+    "oxlint": "catalog:",
+    "oxlint-tsgolint": "catalog:",
+    "typescript": "catalog:"
+  },
+  "packageManager": "bun@1.4.4",
+  "catalog": {
+    "typescript": "^7.0.2",
+    "oxlint": "^1.89.0",
+    "oxfmt": "^0.74.0",
+    "oxlint-tsgolint": "^7.0.2005"
+  }
+}
