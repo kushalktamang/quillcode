@@ -1,12 +1,21 @@
-import { TextAttributes } from "@opentui/core";
 import type { JSX } from "@opentui/react/jsx-runtime";
+
+import Header from "../_components/layout/header";
+import Input from "../_components/layout/input/input";
 
 function App(): JSX.Element {
   return (
-    <box alignItems="center" justifyContent="center" flexGrow={1}>
-      <box justifyContent="center" alignItems="flex-end">
-        <ascii-font font="block" text="quillCode" />
-        <text attributes={TextAttributes.DIM}>What will you build?</text>
+    <box
+      flexGrow={1}
+      alignItems="center"
+      justifyContent="center"
+      width="100%"
+      height="100%"
+      gap={2}
+    >
+      <Header />
+      <box width="100%" maxWidth={78} paddingX={2}>
+        <Input onSubmit={() => {}} />
       </box>
     </box>
   );
