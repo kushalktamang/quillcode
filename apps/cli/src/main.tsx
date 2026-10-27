@@ -3,5 +3,9 @@ import { createRoot } from "@opentui/react";
 
 import App from "./app";
 
-const renderer = await createCliRenderer();
+const renderer = await createCliRenderer({
+  targetFps: 60,
+  exitOnCtrlC: false,
+});
+
 createRoot(renderer).render(<App />);
