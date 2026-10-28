@@ -2,6 +2,8 @@ import type { TextareaRenderable } from "@opentui/core";
 import { useRenderer } from "@opentui/react";
 import { useCallback, useEffect, useRef } from "react";
 
+import { useKeyboardLayer } from "../../../providers/keybindings";
+import { useToast } from "../../../providers/toast";
 import type { Command } from "../../commands/types";
 import useCommand from "../../commands/use-commands";
 import type { Props } from "./types";
@@ -9,6 +11,8 @@ import type { Props } from "./types";
 function useInput({ onSubmit, disabled = false }: Props) {
   const textareaRef = useRef<TextareaRenderable>(null);
   const renderer = useRenderer();
+  const toast = useToast();
+  const { isTopLayer, setResponder } = useKeyboardLayer();
 
   const {
     showCommand,
@@ -71,9 +75,10 @@ function useInput({ onSubmit, disabled = false }: Props) {
         exit: () => {
           renderer.destroy();
         },
+        toast,
       });
     },
-    [renderer],
+    [renderer, toast],
   );
 
   const handleCommandExecute = useCallback(
@@ -104,6 +109,24 @@ function useInput({ onSubmit, disabled = false }: Props) {
     };
   }, [disabled, showCommand, selectedIndex, resolveCommand, handleCommand, handleOnSubmit]);
 
+  // Register the base layer responder for ctrl + c dismissal
+  useEffect(() => {
+    setResponder("base", () => {
+      if (disabled === null) return false;
+
+      const textarea = textareaRef.current;
+      if (textarea !== null && textarea.plainText.length > 0) {
+        textarea.setText("");
+        return true;
+      }
+      return false;
+    });
+
+    return () => {
+      setResponder("base", null);
+    };
+  }, [disabled, setResponder]);
+
   return {
     textareaRef,
     showCommand,
@@ -113,6 +136,7 @@ function useInput({ onSubmit, disabled = false }: Props) {
     handleTextareaContentChange,
     handleCommandExecute,
     setSelectedIndex,
+    isTopLayer,
     disabled,
   };
 }

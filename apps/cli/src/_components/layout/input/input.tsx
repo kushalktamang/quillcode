@@ -16,6 +16,7 @@ function Input(props: Props): JSX.Element {
     handleTextareaContentChange,
     handleCommandExecute,
     setSelectedIndex,
+    isTopLayer,
     disabled,
   } = useInput(props);
 
@@ -60,7 +61,7 @@ function Input(props: Props): JSX.Element {
             onContentChange={handleTextareaContentChange}
             cursorColor="#7daea3"
             cursorStyle={CURSOR_STYLE}
-            focused={!disabled}
+            focused={!disabled && (isTopLayer("base") || isTopLayer("command"))}
             keyBindings={TEXTAREA_KEY_BINDINGS}
             placeholder="...fix a bug in the database"
           />
