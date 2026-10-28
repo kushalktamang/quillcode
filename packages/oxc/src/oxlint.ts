@@ -29,6 +29,7 @@ export default defineConfig({
     "max-lines-per-function": "off",
     "max-statements": "off",
     "no-duplicate-imports": "allow",
+    "import/no-duplicates": "allow",
     curly: "off",
 
     // Accidental console.log is a common review nitpick
