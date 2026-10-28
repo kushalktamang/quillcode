@@ -1,8 +1,11 @@
 import type { ScrollBoxRenderable } from "@opentui/core";
 import type { RefObject } from "react";
 
+import type { ToastContextValue } from "../../providers/toast/types";
+
 interface CommandContext {
   exit: () => void;
+  toast: ToastContextValue;
 }
 
 interface Command {

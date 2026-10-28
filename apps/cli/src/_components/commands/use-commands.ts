@@ -2,6 +2,7 @@ import type { ScrollBoxRenderable } from "@opentui/core";
 import { useKeyboard } from "@opentui/react";
 import { useMemo, useRef, useState } from "react";
 
+import { useKeyboardLayer } from "../../providers/keybindings";
 import getCommandsFiltered from "./filter";
 import type { Command, UseCommandReturn } from "./types";
 
@@ -10,6 +11,12 @@ function useCommand(): UseCommandReturn {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [showCommand, setShowCommand] = useState(false);
   const scrollRef = useRef<ScrollBoxRenderable>(null);
+  const { push, pop, isTopLayer } = useKeyboardLayer();
+
+  const closeCommand = () => {
+    setShowCommand(false);
+    pop("command");
+  };
 
   const commandQuery = showCommand && textValue.startsWith("/") ? textValue.slice(1) : "";
 
@@ -29,8 +36,12 @@ function useCommand(): UseCommandReturn {
     const prefix = text.startsWith("/") ? text.slice(1) : null;
     if (prefix !== null && !prefix.includes(" ")) {
       setShowCommand(true);
+      push("command", () => {
+        closeCommand();
+        return true;
+      });
     } else {
-      setShowCommand(false);
+      closeCommand();
     }
   };
 
@@ -38,7 +49,7 @@ function useCommand(): UseCommandReturn {
   const resolveCommand = (index: number): Command | undefined => {
     const command = filteredCommands[index];
     if (command !== undefined) {
-      setShowCommand(false);
+      closeCommand();
     }
     return command;
   };
@@ -46,13 +57,11 @@ function useCommand(): UseCommandReturn {
   // Using Arrow keys to move command selection
   // The list follows along when the highlight goes off screen
   useKeyboard((key) => {
-    if (!showCommand) {
-      return;
-    }
+    if (!showCommand || !isTopLayer("command")) return;
 
     if (key.name === "escape") {
       key.preventDefault();
-      setShowCommand(false);
+      closeCommand();
     } else if (key.name === "up") {
       key.preventDefault();
       setSelectedIndex((i: number) => {
