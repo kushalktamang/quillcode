@@ -112,7 +112,7 @@ function useInput({ onSubmit, disabled = false }: Props) {
   // Register the base layer responder for ctrl + c dismissal
   useEffect(() => {
     setResponder("base", () => {
-      if (disabled === null) return false;
+      if (disabled) return false;
 
       const textarea = textareaRef.current;
       if (textarea !== null && textarea.plainText.length > 0) {

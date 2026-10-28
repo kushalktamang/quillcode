@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { DEFAULT_DURATION, ToastContext } from "./constants";
 import Toast from "./toast";
@@ -14,6 +14,8 @@ function ToastProvider({ children }: ToastProviderProps) {
       timeoutHandleRef.current = null;
     }
   }, []);
+
+  useEffect(() => clearCurrentTimeout, [clearCurrentTimeout]);
 
   const show = useCallback(
     (options: ToastOptions) => {
