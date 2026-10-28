@@ -6,7 +6,7 @@ const Commands: Command[] = [
     description: "start a new conversation",
     value: "/new",
     action: (ctx) => {
-      ctx.toast.show({ message: "Starting new conversation...", variant: "info" });
+      ctx.toast.show({ message: "Starting new conversation..." });
     },
   },
   {

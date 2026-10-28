@@ -32,6 +32,8 @@ function ToastProvider({ children }: ToastProviderProps) {
       timeoutHandleRef.current = setTimeout(() => {
         setCurrentToast(null);
       }, duration);
+
+      return clearCurrentTimeout;
     },
     [clearCurrentTimeout],
   );
