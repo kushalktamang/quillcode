@@ -35,7 +35,7 @@ function Input(props: Props): JSX.Element {
           paddingY={1}
           width="100%"
           gap={1}
-          backgroundColor="#222126"
+          backgroundColor="#232427"
         >
           {showCommand && (
             <box

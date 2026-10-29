@@ -2,6 +2,7 @@ import type { TextareaRenderable } from "@opentui/core";
 import { useRenderer } from "@opentui/react";
 import { useCallback, useEffect, useRef } from "react";
 
+import { useDialog } from "../../../providers/dialog";
 import { useKeyboardLayer } from "../../../providers/keybindings";
 import { useToast } from "../../../providers/toast";
 import type { Command } from "../../commands/types";
@@ -12,6 +13,7 @@ function useInput({ onSubmit, disabled = false }: Props) {
   const textareaRef = useRef<TextareaRenderable>(null);
   const renderer = useRenderer();
   const toast = useToast();
+  const dialog = useDialog();
   const { isTopLayer, setResponder } = useKeyboardLayer();
 
   const {
@@ -76,9 +78,10 @@ function useInput({ onSubmit, disabled = false }: Props) {
           renderer.destroy();
         },
         toast,
+        dialog,
       });
     },
-    [renderer, toast],
+    [renderer, toast, dialog],
   );
 
   const handleCommandExecute = useCallback(

@@ -13,6 +13,12 @@ const Commands: Command[] = [
     name: "agents",
     description: "switch agents",
     value: "/agents",
+    action: (ctx) => {
+      ctx.dialog.open({
+        title: "Select Mode",
+        children: <text>Agents selection comming soon...</text>,
+      });
+    },
   },
   {
     name: "models",
