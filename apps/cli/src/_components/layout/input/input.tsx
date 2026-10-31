@@ -1,12 +1,14 @@
 import type { JSX } from "@opentui/react/jsx-runtime";
 
-import CommandMenu from "../../commands";
+import useTheme from "../../../providers/theme/use-theme";
+import { CommandMenu } from "../../commands";
 import Status from "../../ui/status";
 import { BORDER_SIDES, CURSOR_STYLE, INPUT_BORDER_CHARS, TEXTAREA_KEY_BINDINGS } from "./constants";
 import type { Props } from "./types";
 import useInput from "./use-input";
 
 function Input(props: Props): JSX.Element {
+  const { colors } = useTheme();
   const {
     textareaRef,
     showCommand,
@@ -25,7 +27,7 @@ function Input(props: Props): JSX.Element {
       <box
         width="100%"
         border={BORDER_SIDES}
-        borderColor="#7daea3"
+        borderColor={colors.primary}
         customBorderChars={INPUT_BORDER_CHARS}
       >
         <box
@@ -35,7 +37,7 @@ function Input(props: Props): JSX.Element {
           paddingY={1}
           width="100%"
           gap={1}
-          backgroundColor="#232427"
+          backgroundColor={colors.surface}
         >
           {showCommand && (
             <box
@@ -43,7 +45,7 @@ function Input(props: Props): JSX.Element {
               bottom="100%"
               left={0}
               width="100%"
-              backgroundColor="#1a1a24"
+              backgroundColor={colors.surface}
               zIndex={10}
             >
               <CommandMenu

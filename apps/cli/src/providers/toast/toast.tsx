@@ -1,8 +1,9 @@
 import { useTerminalDimensions } from "@opentui/react";
 
 import { SplitBorder } from "../../_components/ui/border";
-import { BORDER_SIDES, borderColor, colors } from "./constants";
-import type { ToastOptions } from "./types";
+import useTheme from "../theme/use-theme";
+import { BORDER_SIDES } from "./constants";
+import type { ToastOptions, ToastVariant } from "./types";
 
 interface ToastProps {
   currentToast: ToastOptions | null;
@@ -10,10 +11,19 @@ interface ToastProps {
 
 function Toast({ currentToast }: ToastProps) {
   const { width } = useTerminalDimensions();
+  const { colors } = useTheme();
 
   if (currentToast === null) {
     return null;
   }
+
+  const variantColors: Record<ToastVariant, string> = {
+    success: colors.success,
+    error: colors.error,
+    info: colors.info,
+  };
+
+  const borderColor = variantColors[currentToast.variant ?? "info"];
 
   return (
     <box
