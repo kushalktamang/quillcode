@@ -5,8 +5,8 @@ import { useCallback, useEffect, useRef } from "react";
 import { useDialog } from "../../../providers/dialog";
 import { useKeyboardLayer } from "../../../providers/keybindings";
 import { useToast } from "../../../providers/toast";
-import type { Command } from "../../commands/types";
-import useCommand from "../../commands/use-commands";
+import { useCommand } from "../../commands";
+import type { Command } from "../../commands";
 import type { Props } from "./types";
 
 function useInput({ onSubmit, disabled = false }: Props) {
