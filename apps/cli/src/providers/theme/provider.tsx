@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import type { Theme } from "../../_assets/themes";
 import { ThemeContext } from "./constants";
 import { loadTheme, saveTheme } from "./storage";
+import { resetTerminalBackground, setTerminalBackground } from "./terminal-background";
 import type { ThemeProviderProps } from "./types";
 
 function ThemeProvider({ children }: ThemeProviderProps) {
@@ -12,7 +13,10 @@ function ThemeProvider({ children }: ThemeProviderProps) {
 
   useEffect(() => {
     renderer.setBackgroundColor(currentTheme.colors.background);
+    setTerminalBackground(currentTheme.colors.background);
   }, [currentTheme.colors.background, renderer]);
+
+  useEffect(() => resetTerminalBackground, []);
 
   const setTheme = useCallback((theme: Theme) => {
     setCurrentTheme(theme);
