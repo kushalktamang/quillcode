@@ -5,7 +5,7 @@ import { useCallback, useRef, useState } from "react";
 
 import { useKeyboardLayer } from "../../providers/keybindings";
 import MAX_VISIBLE_ITEMS from "./constants";
-import SearchListRow from "./search-list-row";
+import SearchListRow from "./searchListRow";
 import type { SearchListProps } from "./types";
 
 function SearchList<T>({

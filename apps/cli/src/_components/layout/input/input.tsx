@@ -1,11 +1,11 @@
 import type { JSX } from "@opentui/react/jsx-runtime";
 
-import useTheme from "../../../providers/theme/use-theme";
+import { useTheme } from "../../../providers/theme";
 import { CommandMenu } from "../../commands";
 import Status from "../../ui/status";
 import { BORDER_SIDES, CURSOR_STYLE, INPUT_BORDER_CHARS, TEXTAREA_KEY_BINDINGS } from "./constants";
 import type { Props } from "./types";
-import useInput from "./use-input";
+import useInput from "./useInput";
 
 function Input(props: Props): JSX.Element {
   const { colors } = useTheme();

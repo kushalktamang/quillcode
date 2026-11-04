@@ -1,7 +1,7 @@
 import type { JSX } from "@opentui/react/jsx-runtime";
 import { memo, useCallback } from "react";
 
-import useTheme from "../../providers/theme/use-theme";
+import { useTheme } from "../../providers/theme";
 import { COMMAND_COL_WIDTH } from "./constants";
 import type { CommandListProps } from "./types";
 

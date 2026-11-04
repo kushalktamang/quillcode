@@ -4,7 +4,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import type { Theme } from "../../_assets/themes";
 import { ThemeContext } from "./constants";
 import { loadTheme, saveTheme } from "./storage";
-import { resetTerminalBackground, setTerminalBackground } from "./terminal-background";
+import { resetTerminalBackground, setTerminalBackground } from "./terminalBackground";
 import type { ThemeProviderProps } from "./types";
 
 function ThemeProvider({ children }: ThemeProviderProps) {

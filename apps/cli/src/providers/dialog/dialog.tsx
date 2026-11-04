@@ -2,7 +2,7 @@ import { TextAttributes } from "@opentui/core";
 import { useKeyboard, useTerminalDimensions } from "@opentui/react";
 
 import { useKeyboardLayer } from "../keybindings";
-import useTheme from "../theme/use-theme";
+import { useTheme } from "../theme";
 import { BackgroundColor, stopPropagation } from "./constants";
 import type { DialogProps } from "./types";
 

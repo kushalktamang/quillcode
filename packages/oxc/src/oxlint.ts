@@ -31,6 +31,10 @@ export default defineConfig({
     "no-duplicate-imports": "allow",
     "import/no-duplicates": "allow",
     curly: "off",
+    "unicorn/max-nested-calls": "off",
+    "unicorn/filename-case": "off",
+    "new-cap": ["error", { capIsNewExceptions: ["Scalar"] }],
+    "import/no-namespace": "off",
 
     // Accidental console.log is a common review nitpick
     "no-console": "warn",

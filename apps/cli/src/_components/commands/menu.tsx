@@ -1,6 +1,6 @@
 import { TextAttributes } from "@opentui/core";
 
-import CommandsList from "./commands-list";
+import CommandsList from "./commandsList";
 import { MAX_VISIBLE_ITEMS, SCROLLBAR_OPTIONS } from "./constants";
 import getCommandsFiltered from "./filter";
 import type { CommandMenuProps } from "./types";

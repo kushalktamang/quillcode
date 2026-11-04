@@ -1,5 +1,5 @@
 export { default as CommandMenu } from "./menu";
-export { default as useCommand } from "./use-commands";
+export { default as useCommand } from "./useCommands";
 export { default as Commands } from "./commands";
 export type {
   CommandContext,

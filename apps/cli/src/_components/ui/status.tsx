@@ -1,7 +1,7 @@
 import { TextAttributes } from "@opentui/core";
 import type { JSX } from "@opentui/react/jsx-runtime";
 
-import useTheme from "../../providers/theme/use-theme";
+import { useTheme } from "../../providers/theme";
 
 function Status(): JSX.Element {
   const { colors } = useTheme();
