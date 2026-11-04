@@ -3,5 +3,5 @@ import { defineConfig } from "oxlint";
 
 export default defineConfig({
   extends: [shared],
-  ignorePatterns: ["dist", "build", "node_modules"],
+  ignorePatterns: ["dist", "build", "node_modules", "packages/httpStatus/src/**/*.ts"],
 });

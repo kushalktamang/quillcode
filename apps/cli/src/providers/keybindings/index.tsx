@@ -1,2 +1,2 @@
 export { default as KeyboardLayerProvider } from "./provider";
-export { default as useKeyboardLayer } from "./use-keyboard";
+export { default as useKeyboardLayer } from "./useKeyboard";

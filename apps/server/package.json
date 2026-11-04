@@ -1,0 +1,29 @@
+{
+  "name": "@quillcode/server",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/server.ts"
+  },
+  "scripts": {
+    "dev": "bun run --hot src/index.ts"
+  },
+  "dependencies": {
+    "@asteasolutions/zod-to-openapi": "^9.1.0",
+    "@hono/zod-openapi": "^1.6.3",
+    "@hono/zod-validator": "^0.9.1",
+    "@quillcode/database": "workspace:*",
+    "@quillcode/http-status": "workspace:*",
+    "@quillcode/logger": "workspace:*",
+    "@quillcode/shared": "workspace:*",
+    "@scalar/hono-api-reference": "^0.12.17",
+    "dotenv": "^18.0.9",
+    "drizzle-orm": "catalog:",
+    "hono": "^4.13.16",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "typescript": "catalog:"
+  }
+}

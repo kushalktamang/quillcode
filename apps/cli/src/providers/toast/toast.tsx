@@ -1,7 +1,7 @@
 import { useTerminalDimensions } from "@opentui/react";
 
 import { SplitBorder } from "../../_components/ui/border";
-import useTheme from "../theme/use-theme";
+import { useTheme } from "../theme";
 import { BORDER_SIDES } from "./constants";
 import type { ToastOptions, ToastVariant } from "./types";
 

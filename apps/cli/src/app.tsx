@@ -3,7 +3,7 @@ import { createMemoryRouter, RouterProvider } from "react-router";
 
 import Root from "./__root";
 import Home from "./screens/home";
-import NewSession from "./screens/new-session";
+import NewSession from "./screens/newSession";
 import Session from "./screens/session";
 
 const router = createMemoryRouter([

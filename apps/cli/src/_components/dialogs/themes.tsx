@@ -3,7 +3,7 @@ import { useCallback, useEffect, useRef } from "react";
 import type { Theme } from "../../_assets/themes";
 import THEMES from "../../_assets/themes/themes";
 import { useDialog } from "../../providers/dialog";
-import useTheme from "../../providers/theme/use-theme";
+import { useTheme } from "../../providers/theme";
 import { SearchList } from "../search";
 
 const filterTheme = (theme: Theme, query: string): boolean =>
